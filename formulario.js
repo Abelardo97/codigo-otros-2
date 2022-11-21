@@ -7,12 +7,11 @@
  * Paso 3: 
  */
 
-//Se cambia el tipo de dato de la variable
-const formulario = document.querySelector("#formulario")
+ let formulario = document.querySelector("form");
 
 formulario.onsubmit = function(e) {
 
-  e.prevent();
+  e.preventDefault();
   
   //Se cambia el tipo  y nombre de las  variables, se añade ;
   let name = formulario.elements[0];
@@ -34,17 +33,19 @@ formulario.onsubmit = function(e) {
   if (nombre.length === 0) {
     n.classList.add("error")
   }
+
   if (edad < 18 || edad > 120) {
     e.classList.add("error")
   }
 
 if (nombre.length > 0 
   && (edad > 18 
-    && edad < 120) ) {
+  && edad < 120) ) {
   agregarInvitado(nombre, edad, nacionalidad)
   }
 }
-//Se agrega const
+
+/*
 
 const botonBorrar = document.createElement("button");
 botonBorrar.textContent = "Eliminar invitado";
@@ -52,6 +53,7 @@ botonBorrar.id = "boton-borrar";
 const  corteLinea = document.createElement("br");
 document.body.appendChild(corteLinea);
 document.body.appendChild(botonBorrar);
+*/
 
 function agregarInvitado(nombre, edad, nacionalidad) {
 
@@ -74,10 +76,10 @@ function agregarInvitado(nombre, edad, nacionalidad) {
 const lista = document.getElementById("lista-de-invitados");
 const elementoLista = document.createElement("div");
 
-elementoLista.classList.added("elemento-lista");
+elementoLista.classList.add("elemento-lista");
 lista.appendChild(elementoLista);
 
-//Se agrega const
+/*
 const spanNombre = document.createElement("span");
 const inputNombre = document.createElement("input");
 const espacio = document.createElement("br");
@@ -86,7 +88,7 @@ inputNombre.value = nombre ;
 elementoLista.appendChild(spanNombre);
 elementoLista.appendChild(inputNombre);
 elementoLista.appendChild(espacio);
-
+*/
 
 function crearElemento(descripcion, valor) {
   //Se agrega const
@@ -116,5 +118,5 @@ elementoLista.appendChild(botonBorrar);
  botonBorrar.onclick = function() {
 // this.parentNode.style.display = 'none';
 botonBorrar.parentNode.remove()
-  }
+  };
 }
